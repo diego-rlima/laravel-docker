@@ -26,7 +26,7 @@ class ResetPasswordRequest extends FormRequest
         return [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed'
+            'password' => 'required|string|min:8|confirmed'
         ];
     }
 
@@ -41,8 +41,10 @@ class ResetPasswordRequest extends FormRequest
             'token.required' => 'Você precisa informar o token de redefinição de senha',
             'email.required' => 'Você precisa informar seu e-mail',
             'email.email' => 'O e-mail informado é inválido',
-            'password.required' => 'Você precisa informar sua senha',
-            'password.confirmed' => 'Você precisa confirmar sua senha',
+            'password.required' => 'Você precisa informar uma senha',
+            'password.confirmed' => 'Você precisa confirmar a senha',
+            'password.string' => 'A senha precisa ser um texto',
+            'password.min' => 'A senha precisa ter no mínimo 8 caracteres',
         ];
     }
 }

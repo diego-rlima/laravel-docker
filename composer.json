@@ -4,7 +4,10 @@
     "description": "A highly opinionated starter kit to develop RESTful APIS with Laravel and Docker.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "docker",
+        "restful",
+        "api"
     ],
     "license": "MIT",
     "require": {
@@ -13,7 +16,7 @@
         "diego-rlima/laravel-cors": "^1.0",
         "fideloper/proxy": "^4.0",
         "hashids/hashids": "^3.0",
-        "laravel/framework": "5.7.*",
+        "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "tymon/jwt-auth": "1.0.0-rc.3"
     },
@@ -24,7 +27,7 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.5"
     },
     "config": {
         "optimize-autoloader": true,

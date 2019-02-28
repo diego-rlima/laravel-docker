@@ -15,6 +15,9 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\Domains\Account\Notifications\ResetPassword as ResetPasswordNotification;
 
+/**
+ * @TODO Implement Email Confirmation
+ */
 class User extends Model implements
     AuthenticatableContract,
     AuthorizableContract,
@@ -41,7 +44,14 @@ class User extends Model implements
         'password', 'remember_token',
     ];
 
-
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
