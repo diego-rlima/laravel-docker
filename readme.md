@@ -86,15 +86,15 @@ $ docker-compose exec app php artisan migrator
 
 Inside your **app-folder**, you can use any of the following commands:
 
-  * Start containers in the background: `docker-compose up -d`
-  * Start containers on the foreground: `docker-compose up`. You will see a stream of logs for every container running.
-  * Stop containers: `docker-compose stop`
-  * Kill containers: `docker-compose kill`
-  * View container logs: `docker-compose logs`
-  * Execute command inside of container: `docker-compose exec SERVICE_NAME COMMAND` where `COMMAND` is whatever you want to run. Examples:
-        * Shell into the PHP container, `docker-compose exec php-fpm bash`
-        * Run symfony console, `docker-compose exec php-fpm bin/console`
-        * Open a mysql shell, `docker-compose exec mysql mysql -uroot -pCHOSEN_ROOT_PASSWORD`
+* Start containers in the background: `docker-compose up -d`
+* Start containers on the foreground: `docker-compose up`. You will see a stream of logs for every container running.
+* Stop containers: `docker-compose stop`
+* Kill containers: `docker-compose kill`
+* View container logs: `docker-compose logs`
+* Execute command inside of container: `docker-compose exec SERVICE_NAME COMMAND` where `COMMAND` is whatever you want to run. Examples:
+    * Shell into the PHP container, `docker-compose exec php-fpm bash`
+    * Run symfony console, `docker-compose exec php-fpm bin/console`
+    * Open a mysql shell, `docker-compose exec mysql mysql -uroot -pCHOSEN_ROOT_PASSWORD`
 
 ## Accessing the Application
 
