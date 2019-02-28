@@ -26,7 +26,7 @@ class UpdateAccountRequest extends FormRequest
         return [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users,email,' . auth()->user()->id,
-            'password' => 'nullable|confirmed'
+            'password' => 'nullable|string|min:8|confirmed'
         ];
     }
 
@@ -44,7 +44,9 @@ class UpdateAccountRequest extends FormRequest
             'email.required' => 'Informe um email',
             'email.unique' => 'Este email já está em uso',
             'email.email' => 'Informe um email válido',
-            'password.confirmed' => 'Você deve confirmar a senha',
+            'password.confirmed' => 'Você precisa confirmar a senha',
+            'password.string' => 'A senha precisa ser um texto',
+            'password.min' => 'A senha precisa ter no mínimo 8 caracteres',
         ];
     }
 }
