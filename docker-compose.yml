@@ -3,7 +3,7 @@ services:
 
   memcached:
     image: memcached:alpine
-    container_name: phpdocker-memcached
+    container_name: laravel-docker-memcached
 
   mysql:
     image: mysql:5.7
@@ -41,7 +41,7 @@ services:
     working_dir: /application
     volumes:
       - .:/application
-      - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+      - ./docker/php-fpm/php.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
     networks:
       - app-network
 
