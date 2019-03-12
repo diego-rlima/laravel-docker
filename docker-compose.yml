@@ -1,9 +1,13 @@
 version: "3.1"
 services:
 
-  memcached:
-    image: memcached:alpine
-    container_name: laravel-docker-memcached
+  beanstalkd:
+    build: docker/beanstalkd
+    container_name: laravel-docker-beanstalkd
+
+  redis:
+    image: redis:alpine
+    container_name: laravel-docker-redis
 
   mysql:
     image: mysql:5.7

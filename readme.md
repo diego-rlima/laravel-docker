@@ -1,7 +1,7 @@
 # Starting with Laravel and Docker
 
 This repository is my starter kit for developing with Laravel and Docker. It's really basics, but you'll be able to start developing without getting bored with the installation of PHP, Nginx and MySQL.
-This ships with **PHP 7.3-fpm**, **Nginx Alpine**, **MySQL 5.7** and **Memcached Alpine**.
+This ships with **PHP 7.3-fpm**, **Nginx Alpine**, **MySQL 5.7**, **Redis Alpine** and **Beanstalkd**.
 
 ## Requirements
 
@@ -60,11 +60,12 @@ $ docker ps
 If is everything ok, it will output something like:
 
 ````
-CONTAINER ID        IMAGE                COMMAND                  CREATED             STATUS              PORTS                                         NAMES
-de320d716e6c        mysql:5.7            "docker-entrypoint.s…"   2 minutes ago   2 minutes ago    33060/tcp, 0.0.0.0:8002->3306/tcp             laravel-docker-mysql
-c3fafc29c50f        nginx:alpine         "nginx -g 'daemon of…"   2 minutes ago   2 minutes ago    0.0.0.0:8000->80/tcp, 0.0.0.0:8443->443/tcp   laravel-docker-nginx
-42f663b922c0        memcached:alpine     "docker-entrypoint.s…"   2 minutes ago   2 minutes ago    11211/tcp                                     phpdocker-memcached
-a53498ca08b6        laravel-docker_app   "/bin/sh -c /usr/bin…"   2 minutes ago   2 minutes ago    9000/tcp                                      laravel-docker-app
+CONTAINER ID        IMAGE                       COMMAND                  CREATED         STATUS           PORTS                                         NAMES
+a53498ca08b6        laravel-docker_app          "php-fpm"                2 minutes ago   2 minutes ago    9000/tcp                                      laravel-docker-app
+0a3e2f0cb59a        laravel-docker_beanstalkd   "/usr/bin/beanstalkd"    2 minutes ago   2 minutes ago    11300/tcp                                     laravel-docker-beanstalkd
+de320d716e6c        mysql:5.7                   "docker-entrypoint.s…"   2 minutes ago   2 minutes ago    33060/tcp, 0.0.0.0:8002->3306/tcp             laravel-docker-mysql
+c3fafc29c50f        nginx:alpine                "nginx -g 'daemon of…"   2 minutes ago   2 minutes ago    0.0.0.0:8000->80/tcp, 0.0.0.0:8443->443/tcp   laravel-docker-nginx
+dcc4e90fabbf        redis:alpine                "docker-entrypoint.s…"   2 minutes ago   2 minutes ago    6379/tcp                                      laravel-docker-redis
 ````
 
 Next, set the the `APP_KEY` and the `JWT_SECRET` for the Laravel application.
@@ -111,11 +112,12 @@ The default database name, user, and password are, respectively, `laravel`, `roo
 
 You'll need to configure your application to use any services you enabled:
 
-Service|Hostname|Port number
-------|---------|-----------
-php-fpm|php-fpm|9000
-MySQL|mysql|3306 (default)
-Memcached|memcached|11211 (default)
+ Service   | Hostname                  | Port number
+-----------|---------------------------|----------------
+php-fpm    | laravel-docker-app        | 9000
+MySQL      | laravel-docker-mysql      | 3306 (default)
+Redis      | laravel-docker-redis      | 6379 (default)
+Beanstalkd | laravel-docker-beanstalkd | 11300 (default)
 
 ## License
 
