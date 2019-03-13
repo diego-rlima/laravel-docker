@@ -53,7 +53,7 @@ abstract class ServiceProvider extends DefaultServiceProvider
      */
     public function boot(): void
     {
-        Schema::defaultStringLength(191);
+        // Schema::defaultStringLength(191);
     }
 
     /**

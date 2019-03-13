@@ -7,7 +7,9 @@
         "laravel",
         "docker",
         "restful",
-        "api"
+        "api",
+        "jwt",
+        "redis"
     ],
     "license": "MIT",
     "require": {
@@ -18,7 +20,9 @@
         "hashids/hashids": "^3.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "tymon/jwt-auth": "1.0.0-rc.3"
+        "pda/pheanstalk": "^4.0",
+        "predis/predis": "^1.1",
+        "tymon/jwt-auth": "1.0.0-rc.4"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

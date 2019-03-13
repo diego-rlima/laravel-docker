@@ -9,17 +9,42 @@ use App\Domains\Account\Database\Migrations;
 
 class DomainServiceProvider extends ServiceProvider
 {
-    protected $alias = 'users';
+    /**
+     * Domain alias for resources.
+     *
+     * @var string
+     */
+    protected $alias = 'account';
 
+    /**
+     * List of migrations provided by Domain.
+     *
+     * @var array
+     */
     protected $migrations = [
         Migrations\CreateUsersTable::class,
         Migrations\CreatePasswordResetsTable::class,
+        Migrations\CreateOauthClientsTable::class,
+        Migrations\CreateOauthPersonalAccessClientsTable::class,
+        Migrations\CreateOauthAuthCodesTable::class,
+        Migrations\CreateOauthAccessTokensTable::class,
+        Migrations\CreateOauthRefreshTokensTable::class,
     ];
 
+    /**
+     * List of seeders provided by Domain.
+     *
+     * @var array
+     */
     protected $seeders = [
         Seeders\UserSeeder::class,
     ];
 
+    /**
+     * List of model factories to load.
+     *
+     * @var array
+     */
     protected $factories = [
         Factories\UserFactory::class,
     ];
