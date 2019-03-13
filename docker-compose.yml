@@ -4,10 +4,14 @@ services:
   beanstalkd:
     build: docker/beanstalkd
     container_name: laravel-docker-beanstalkd
+    networks:
+      - app-network
 
   redis:
     image: redis:alpine
     container_name: laravel-docker-redis
+    networks:
+      - app-network
 
   mysql:
     image: mysql:5.7
