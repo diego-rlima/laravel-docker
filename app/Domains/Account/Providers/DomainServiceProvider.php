@@ -24,11 +24,6 @@ class DomainServiceProvider extends ServiceProvider
     protected $migrations = [
         Migrations\CreateUsersTable::class,
         Migrations\CreatePasswordResetsTable::class,
-        Migrations\CreateOauthClientsTable::class,
-        Migrations\CreateOauthPersonalAccessClientsTable::class,
-        Migrations\CreateOauthAuthCodesTable::class,
-        Migrations\CreateOauthAccessTokensTable::class,
-        Migrations\CreateOauthRefreshTokensTable::class,
     ];
 
     /**
